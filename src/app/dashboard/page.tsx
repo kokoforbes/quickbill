@@ -20,7 +20,7 @@ export default function dashboard() {
         <h1 className='text-5xl font-bold'>Invoices</h1>
 
         <Button variant='ghost' className='inline-flex gap-2' asChild>
-          <Link href=''>
+          <Link href='/invoices/new'>
             <CirclePlus className='h-4 w-4' />
             Create Invoice
           </Link>
