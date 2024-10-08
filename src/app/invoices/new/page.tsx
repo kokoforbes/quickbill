@@ -1,7 +1,11 @@
+"use client";
+
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+
+import { createAction } from "@/app/actions";
 
 export default function NewInvoice() {
   return (
@@ -11,7 +15,7 @@ export default function NewInvoice() {
         <h1 className='text-3xl font-bold'>Create a new Invoice</h1>
       </div>
 
-      <form className='grid gap-4 max-w-xs'>
+      <form action={createAction} className='grid gap-4 max-w-xs'>
         <div>
           <Label htmlFor='name' className='block font-semibold text-small'>
             Customer Name
