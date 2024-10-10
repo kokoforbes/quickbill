@@ -15,16 +15,11 @@ export default function NewInvoice() {
   const [state, setState] = useState("ready");
 
   const handleOnSubmit = async (event: SyntheticEvent) => {
-    event.preventDefault();
-    if (state === "pending") return;
+    if (state === "pending") {
+      event.preventDefault();
+      return;
+    }
     setState("pending");
-    const target = event.target as HTMLFormElement;
-
-    startTransition(async () => {
-      const formData = new FormData(target);
-
-      await createAction(formData);
-    });
   };
 
   return (
