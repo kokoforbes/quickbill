@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { notFound } from "next/navigation";
 
 export default async function InvoicePage({
   params,
@@ -12,13 +13,17 @@ export default async function InvoicePage({
 }) {
   const invoiceId = await parseInt(params.invoiceId);
 
+  if (Number.isNaN(invoiceId)) {
+    throw new Error("Invalid Invoice ID");
+  }
+
   const [invoice] = await db
     .select()
     .from(Invoices)
     .where(eq(Invoices.id, invoiceId))
     .limit(1);
 
-  console.log(invoice);
+  if (!invoice) return notFound;
 
   return (
     <main className='h-full max-w-5xl mx-auto my-12'>
