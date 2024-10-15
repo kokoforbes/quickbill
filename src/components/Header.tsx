@@ -1,5 +1,5 @@
 import {
-  // OrganizationSwitcher,
+  OrganizationSwitcher,
   SignInButton,
   SignedIn,
   SignedOut,
@@ -18,11 +18,11 @@ const Header = () => {
               <Link href='/dashboard'>QuickBill</Link>
             </p>
             <span className='text-slate-300'>/</span>
-            {/* <SignedIn>
+            <SignedIn>
               <span className='-ml-2'>
                 <OrganizationSwitcher afterCreateOrganizationUrl='/dashboard' />
               </span>
-            </SignedIn> */}
+            </SignedIn>
           </div>
           <div>
             <SignedOut>
