@@ -1,11 +1,18 @@
 "use server";
 
+import { auth } from "@clerk/nextjs/server";
+
 import { redirect } from "next/navigation";
 
 import { db } from "@/db";
 import { Invoices } from "@/db/schema";
 
 export async function createAction(formData: FormData) {
+  const { userId } = auth();
+
+  if (!userId) {
+    return;
+  }
   const value = Math.floor(
     Number.parseFloat(String(formData.get("value"))) * 100
   );
