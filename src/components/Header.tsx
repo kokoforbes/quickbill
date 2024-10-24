@@ -17,8 +17,9 @@ const Header = () => {
             <p className='font-bold'>
               <Link href='/dashboard'>QuickBill</Link>
             </p>
-            <span className='text-slate-300'>/</span>
             <SignedIn>
+              <span className='text-slate-300'>/</span>
+
               <span className='-ml-2'>
                 <OrganizationSwitcher afterCreateOrganizationUrl='/dashboard' />
               </span>

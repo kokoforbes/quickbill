@@ -1,5 +1,3 @@
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -9,12 +7,6 @@ export default function Home() {
       <h1 className='text-5xl font-bold'>QuickBill</h1>
 
       <div>
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
         <Button asChild>
           <Link href='/dashboard'>Sign In</Link>
         </Button>
